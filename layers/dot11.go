@@ -746,8 +746,12 @@ func (m *Dot11InformationElement) DecodeFromBytes(data []byte, df gopacket.Decod
 	}
 	if m.ID == 221 {
 		// Vendor extension
-		m.OUI = data[offset : offset+4]
-		m.Info = data[offset+4 : offset+int(m.Length)]
+		if offset+4 > offset+int(m.Length) {
+			m.Info = data[offset : offset+int(m.Length)]
+		} else {
+			m.OUI = data[offset : offset+4]
+			m.Info = data[offset+4 : offset+int(m.Length)]
+		}
 	} else {
 		m.Info = data[offset : offset+int(m.Length)]
 	}
