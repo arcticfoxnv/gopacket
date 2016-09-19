@@ -746,11 +746,12 @@ func (m *Dot11InformationElement) DecodeFromBytes(data []byte, df gopacket.Decod
 	}
 	if m.ID == 221 {
 		// Vendor extension
-		// Fix crash where offset+4 exceeds offset+length
-		if offset+4 < offset+int(m.Length) {
-			m.OUI = data[offset : offset+4]
-			m.Info = data[offset+4 : offset+int(m.Length)]
+		if offset+int(m.Length) < offset+4 {
+			df.SetTruncated()
+			return fmt.Errorf("Dot11InformationElement offset %v too long, %v max", offset+4, len(data))
 		}
+		m.OUI = data[offset : offset+4]
+		m.Info = data[offset+4 : offset+int(m.Length)]
 	} else {
 		m.Info = data[offset : offset+int(m.Length)]
 	}
