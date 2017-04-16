@@ -3,8 +3,12 @@ install:
  - go get github.com/arcticfoxnv/gopacket
  - go get github.com/arcticfoxnv/gopacket/layers
  - go get github.com/arcticfoxnv/gopacket/tcpassembly
+ - go get github.com/arcticfoxnv/gopacket/reassembly
 script:
  - go test github.com/arcticfoxnv/gopacket
  - go test github.com/arcticfoxnv/gopacket/layers
  - go test github.com/arcticfoxnv/gopacket/tcpassembly
+ - go test github.com/arcticfoxnv/gopacket/reassembly
  - ./.travis.gofmt.sh
+ - ./.travis.govet.sh
+ - ./.travis.golint.sh
