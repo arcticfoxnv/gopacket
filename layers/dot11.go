@@ -243,21 +243,29 @@ type Dot11InformationElementID uint8
 // TODO: Verify these element ids, and append more ids if more.
 
 const (
-	Dot11InformationElementIDSSID          Dot11InformationElementID = 0
-	Dot11InformationElementIDRates         Dot11InformationElementID = 1
-	Dot11InformationElementIDFHSet         Dot11InformationElementID = 2
-	Dot11InformationElementIDDSSet         Dot11InformationElementID = 3
-	Dot11InformationElementIDCFSet         Dot11InformationElementID = 4
-	Dot11InformationElementIDTIM           Dot11InformationElementID = 5
-	Dot11InformationElementIDIBSSSet       Dot11InformationElementID = 6
-	Dot11InformationElementIDChallenge     Dot11InformationElementID = 16
-	Dot11InformationElementIDERPInfo       Dot11InformationElementID = 42
-	Dot11InformationElementIDQOSCapability Dot11InformationElementID = 46
-	Dot11InformationElementIDERPInfo2      Dot11InformationElementID = 47
-	Dot11InformationElementIDRSNInfo       Dot11InformationElementID = 48
-	Dot11InformationElementIDESRates       Dot11InformationElementID = 50
-	Dot11InformationElementIDVendor        Dot11InformationElementID = 221
-	Dot11InformationElementIDReserved      Dot11InformationElementID = 68
+	Dot11InformationElementIDSSID                        Dot11InformationElementID = 0
+	Dot11InformationElementIDRates                       Dot11InformationElementID = 1
+	Dot11InformationElementIDFHSet                       Dot11InformationElementID = 2
+	Dot11InformationElementIDDSSet                       Dot11InformationElementID = 3
+	Dot11InformationElementIDCFSet                       Dot11InformationElementID = 4
+	Dot11InformationElementIDTIM                         Dot11InformationElementID = 5
+	Dot11InformationElementIDIBSSSet                     Dot11InformationElementID = 6
+	Dot11InformationElementIDCountry                     Dot11InformationElementID = 7
+	Dot11InformationElementIDChallenge                   Dot11InformationElementID = 16
+	Dot11InformationElementIDERPInfo                     Dot11InformationElementID = 42
+	Dot11InformationElementIDHTCapability                Dot11InformationElementID = 45
+	Dot11InformationElementIDQOSCapability               Dot11InformationElementID = 46
+	Dot11InformationElementIDERPInfo2                    Dot11InformationElementID = 47
+	Dot11InformationElementIDRSNInfo                     Dot11InformationElementID = 48
+	Dot11InformationElementIDESRates                     Dot11InformationElementID = 50
+	Dot11InformationElementIDHTOperation                 Dot11InformationElementID = 61
+	Dot11InformationElementIDSecondaryChannelOffset      Dot11InformationElementID = 62
+	Dot11InformationElementIDBSSCoexistence              Dot11InformationElementID = 72
+	Dot11InformationElementIDBSSIntolerantChannel        Dot11InformationElementID = 73
+	Dot11InformationElementIDOverlappingBSSScanParameter Dot11InformationElementID = 74
+	Dot11InformationElementIDExtendedCapability          Dot11InformationElementID = 127
+	Dot11InformationElementIDVendor                      Dot11InformationElementID = 221
+	Dot11InformationElementIDReserved                    Dot11InformationElementID = 68
 )
 
 // String provides a human readable string for Dot11InformationElementID.
@@ -280,10 +288,14 @@ func (a Dot11InformationElementID) String() string {
 		return "TIM"
 	case Dot11InformationElementIDIBSSSet:
 		return "IBSSset"
+	case Dot11InformationElementIDCountry:
+		return "Country"
 	case Dot11InformationElementIDChallenge:
 		return "Challenge"
 	case Dot11InformationElementIDERPInfo:
 		return "ERPinfo"
+	case Dot11InformationElementIDHTCapability:
+		return "HT capability"
 	case Dot11InformationElementIDQOSCapability:
 		return "QOS capability"
 	case Dot11InformationElementIDERPInfo2:
@@ -292,6 +304,18 @@ func (a Dot11InformationElementID) String() string {
 		return "RSNinfo"
 	case Dot11InformationElementIDESRates:
 		return "ESrates"
+	case Dot11InformationElementIDHTOperation:
+		return "HT operation"
+	case Dot11InformationElementIDSecondaryChannelOffset:
+		return "Secondary channel offset"
+	case Dot11InformationElementIDBSSCoexistence:
+		return "BSS coexistence"
+	case Dot11InformationElementIDBSSIntolerantChannel:
+		return "BSS intolerant channel report"
+	case Dot11InformationElementIDOverlappingBSSScanParameter:
+		return "Overlapping BSS scan parameters"
+	case Dot11InformationElementIDExtendedCapability:
+		return "Extended capability"
 	case Dot11InformationElementIDVendor:
 		return "Vendor"
 	case Dot11InformationElementIDReserved:
