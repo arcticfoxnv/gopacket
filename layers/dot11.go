@@ -264,6 +264,7 @@ const (
 	Dot11InformationElementIDBSSIntolerantChannel        Dot11InformationElementID = 73
 	Dot11InformationElementIDOverlappingBSSScanParameter Dot11InformationElementID = 74
 	Dot11InformationElementIDExtendedCapability          Dot11InformationElementID = 127
+	Dot11InformationElementIDVHTCapability               Dot11InformationElementID = 191
 	Dot11InformationElementIDVendor                      Dot11InformationElementID = 221
 	Dot11InformationElementIDReserved                    Dot11InformationElementID = 68
 )
@@ -316,6 +317,8 @@ func (a Dot11InformationElementID) String() string {
 		return "Overlapping BSS scan parameters"
 	case Dot11InformationElementIDExtendedCapability:
 		return "Extended capability"
+	case Dot11InformationElementIDVHTCapability:
+		return "VHT Capability"
 	case Dot11InformationElementIDVendor:
 		return "Vendor"
 	case Dot11InformationElementIDReserved:
